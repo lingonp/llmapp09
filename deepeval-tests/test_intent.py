@@ -123,11 +123,12 @@ intent_schema_metric = json_schema_metric(SCHEMA_DESC)
 intent_category_metric = GEval(
     name="Intent Category Accuracy",
     criteria=(
-        "Evaluate whether the intentCategory in the actual output correctly "
-        "classifies the input text. Questions should be classified as "
-        "'question', direct orders as 'command', polite asks as 'request', "
-        "and factual declarations as 'statement'. Compare with the expected "
-        "output to verify the category is correct."
+        "Evaluate ONLY the intentCategory field in the actual output. "
+        "Determine whether it correctly classifies the input as one of: "
+        "'question', 'request', 'command', or 'statement'. "
+        "Compare only the intentCategory value with the expected output. "
+        "Do NOT evaluate or penalize differences in primaryIntent, "
+        "secondaryIntents, confidence, wording, or any other field."
     ),
     evaluation_params=[
         LLMTestCaseParams.INPUT,
