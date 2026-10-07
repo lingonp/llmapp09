@@ -24,3 +24,5 @@ CVE-2026-76642
 CVE-2026-78408
 CVE-2026-78409
 CVE-2026-78410
+# systemd/libudev vulnerability - no fixed version currently reported by Trivy
+CVE-2026-16742
